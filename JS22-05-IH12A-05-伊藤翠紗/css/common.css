@@ -1,0 +1,437 @@
+@charset "utf-8";
+
+   /* 基本設定 */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  font-family: 'メイリオ','Meiryo','Hiragino Kaku Gothic Pro', sans-serif;
+  color: #eee7dc;
+  scrollbar-width: none;
+
+  background-image: url("../images/haikei3.png");
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+
+  background-color: #171513;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar{
+  display: none;
+}
+
+
+ /* ヘッダー */
+
+header{
+  width: 100%;
+  height: 200px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 17, 14, 0.65),
+    rgba(20, 17, 14, 0.15)
+  );
+
+  color: #eee7dc;
+}
+
+header h1{
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 42px;
+  font-weight: normal;
+  letter-spacing: 7px;
+  margin-bottom: 14px;
+}
+
+header h2{
+  font-size: 14px;
+  font-weight: normal;
+  letter-spacing: 3px;
+  color: #c9bca9;
+}
+
+/* ナビゲーション */
+nav{
+  width: 100%;
+  border-top: 1px solid rgba(201, 180, 146, 0.35);
+  border-bottom: 1px solid rgba(201, 180, 146, 0.35);
+  background: rgba(23, 21, 19, 0.92);
+}
+
+nav ul{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  padding: 18px 0;
+}
+
+nav a{
+  position: relative;
+  color: #ded5c8;
+  text-decoration: none;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 14px;
+  letter-spacing: 4px;
+  transition: color 0.3s ease;
+}
+
+nav a::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 0;
+  height: 1px;
+  background: #b49a6a;
+  transition: width 0.3s ease;
+}
+
+nav a:hover{
+  color: #b49a6a;
+}
+
+nav a:hover::after{
+  width: 100%;
+}
+
+
+#nav1,#nav2,#nav3{
+  width: 1000px;
+  margin: 100px auto 55px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 30px;
+  font-weight: normal;
+  letter-spacing: 5px;
+  color: #eee7dc;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+#nav1::after,#nav2::after,#nav3::after{
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(180, 154, 106, 0.5);
+}
+
+
+ /* エリア見出し */
+.midashi{
+  margin: 80px 0 45px 25px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 21px;
+  font-weight: normal;
+  letter-spacing: 3px;
+  color: #d6c7b5;
+  border-left: 2px solid #b49a6a;
+  padding-left: 16px;
+}
+
+
+ /* カフェ紹介 */
+.box01{
+  width: 1000px;
+  margin: 0 auto 85px;
+}
+
+.box1-2{
+  display: flex;
+  align-items: center;
+  min-height: 280px;
+  background: rgba(20, 18, 16, 0.68);
+  border-top: 1px solid rgba(180, 154, 106, 0.25);
+  border-bottom: 1px solid rgba(180, 154, 106, 0.25);
+}
+
+
+/* 写真 */
+
+.box01 img{
+  width: 400px;
+  height: 250px;
+  object-fit: cover;
+  margin: 0;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+}
+
+
+/* 右側の文章 */
+
+.box1-3{
+  margin: 0 45px;
+  flex: 1;
+}
+
+.box1-3 h3{
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 20px;
+  font-weight: normal;
+  letter-spacing: 1.5px;
+  color: #eee7dc;
+  margin-bottom: 20px;
+}
+
+.box1-3 p{
+  width: auto;
+  font-size: 13px;
+  line-height: 2;
+  color: #bdb4a8;
+}
+
+
+ /* MAPリンク */
+.map-link{
+  display: inline-block;
+  margin-top: 25px;
+  color: #b49a6a;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(180,154,106,0.6);
+  padding-bottom: 5px;
+  transition: 0.3s ease;
+}
+
+.map-link:hover{
+  color: #eee7dc;
+  border-color: #eee7dc;
+}
+
+
+ /* MAP */
+gmp-map{
+  display: block;
+  width: 1000px;
+  height: 600px;
+  margin: 0 auto;
+  border: 1px solid rgba(180,154,106,0.4);
+}
+
+
+ /* ピン */
+.pin{
+  font-size: 30px;
+  cursor: pointer;
+  filter: grayscale(100%);
+}
+
+
+gmp-advanced-marker:hover .pin{
+  display: none;
+}
+
+
+.marker-card{
+  display: none;
+  width: 180px;
+  padding: 14px 16px;
+  background: #24211d;
+  border: 1px solid rgba(180,154,106,0.5);
+  border-radius: 0;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  text-align: center;
+  font-family: 'メイリオ','Meiryo',sans-serif;
+}
+gmp-advanced-marker:hover .marker-card{
+  display: block;
+}
+
+
+/* クリック後 */
+gmp-advanced-marker.selected .marker-card{
+  display: none;
+}
+gmp-advanced-marker.selected .pin{
+  display: none;
+}
+
+
+/* カード文字 */
+.marker-title{
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 14px;
+  font-weight: normal;
+  color: #eee7dc;
+  margin-bottom: 7px;
+}
+
+.marker-text{
+  font-size: 11px;
+  color: #a99f93;
+}
+
+
+ /* MAP 詳細 */
+.marker-detail{
+  display: none;
+  width: 300px;
+  padding: 16px;
+  background: #24211d;
+  border: 1px solid rgba(180,154,106,0.45);
+  border-radius: 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  margin-top: 10px;
+  line-height: 1.7;
+}
+
+
+/* 詳細写真 */
+.marker-detail img{
+  width: 100%;
+  margin: 0;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+
+/* 店名 */
+.marker-detail h3{
+  margin: 15px 0 10px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  font-weight: normal;
+  color: #eee7dc;
+}
+
+
+/* 詳細文 */
+.marker-detail p{
+  font-size: 12px;
+  margin: 7px 0;
+  color: #bdb4a8;
+}
+
+.marker-detail .address{
+  margin-top: 5px;
+}
+
+
+/* 説明 */
+.marker-detail .description{
+  margin-top: 15px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(180,154,106,0.25);
+}
+
+
+ /* 写真一覧 */
+.cafe-images{
+  width: 1000px;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.cafe-images > div{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+
+/* 写真1枚分 */
+.cafe-image{
+  position: relative;
+  width: 175px;
+  cursor: pointer;
+  overflow: hidden;
+  background: #171513;
+}
+
+
+/* 写真 */
+.cafe-image img{
+  display: block;
+  width: 175px;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+
+ /* 写真ホバー */
+
+.cafe-image::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(20,17,14,0.65);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  /* クリックを画像に通す */
+  pointer-events: none;
+}
+
+
+/* MAPで見る */
+.cafe-image span{
+  position: absolute;                              
+  top: 50%;
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  color: #eee7dc;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+
+
+/* ゴールドの線 */
+.cafe-image span::after{
+  content: "";
+  display: block;
+  width: 30px;
+  height: 1px;
+  margin: 9px auto 0;
+  background: #b49a6a;
+}
+
+
+/* ホバー */
+.cafe-image:hover::after{
+  opacity: 1;
+}
+.cafe-image:hover span{
+  opacity: 1;
+}
+.cafe-image:hover img{
+  transform: scale(1.04);
+}
+
+
+ /* フッター */
+footer{
+  margin-top: 100px;
+  padding: 35px 0;
+  border-top: 1px solid rgba(180,154,106,0.3);
+  background: rgba(20,18,16,0.9);
+  text-align: center;
+  color: #8f877d;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
